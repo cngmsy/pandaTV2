@@ -13,8 +13,8 @@ import com.jiyun.qcloud.dashixummoban.base.BaseFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
+//直播中国
 public class ChinaFragment extends BaseFragment {
-
 
     @Override
     protected int getLayoutRes() {
