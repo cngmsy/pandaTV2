@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.lenovo.ceshifubiao.MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:id="@+id/recy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!-- TabLayout  高度 20dp -->
+            <!-- ViewPager 高度 权重为1 -->
+            <LinearLayout
+                android:id="@+id/layout"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:background="#efefef">
+
+                <ImageView
+                    android:id="@+id/jia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/ic_subscribe"
+                    />
+            </LinearLayout>
+            <android.support.design.widget.TabLayout
+                app:tabMode="scrollable"
+                android:id="@+id/home_tab"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_toLeftOf="@id/layout"
+                android:background="#efefef"
+                android:visibility="visible"></android.support.design.widget.TabLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+        <include
+            android:id="@+id/gridlayout_ll"
+            layout="@layout/layout_gridlayout_two"
+            android:visibility="gone" />
+    </FrameLayout>
+</LinearLayout>
