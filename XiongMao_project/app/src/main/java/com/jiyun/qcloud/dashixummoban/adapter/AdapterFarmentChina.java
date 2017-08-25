@@ -38,4 +38,7 @@ public class AdapterFarmentChina extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return tab.get(position);
     }
+    public  void shaxin(List<String> tab){
+        this.tab=tab;
+    }
 }

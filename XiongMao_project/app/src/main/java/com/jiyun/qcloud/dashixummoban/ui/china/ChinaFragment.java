@@ -10,10 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jiyun.qcloud.dashixummoban.R;
 import com.jiyun.qcloud.dashixummoban.adapter.AdapterFarmentChina;
@@ -30,6 +32,8 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import de.greenrobot.event.EventBus;
 
+import static android.os.Build.VERSION_CODES.O;
+import static com.jiyun.qcloud.dashixummoban.R.id.container;
 import static com.jiyun.qcloud.dashixummoban.R.id.gridlayout_drageable;
 import static com.jiyun.qcloud.dashixummoban.R.id.gridlayout_undrageable;
 
@@ -189,35 +193,40 @@ public class ChinaFragment extends BaseFragment implements ChinaContract.View {
                                     tablistBean.setUrl(alllistBean.getUrl());
                                     tablist.add(tablistBean);
                                     alllist.remove(i);
-                                    adapterFarmentChina.notifyDataSetChanged();
+                                    tab.add(strItem);
                                 }
                             }
                         }
                     });
 //点击上部，移除一个item在第二个里面添加一个item
-                    gridlayout_drageable.setOnItemClickLitener(new MyGridLayout.OnItemClickLitener() {
-                        @Override
-                        public void OnItemClickLitener(String strItem, View v) {
-                            Log.e("44444444444444444",strItem);
-                            gridlayout_drageable.removeView(v);
-                            gridlayout_undrageable.addTvItem(strItem);
-                            for (int i = 0; i <tablist.size(); i++) {
-                                    if(tablist.get(i).getTitle().equals(strItem)){
+                        gridlayout_drageable.setOnItemClickLitener(new MyGridLayout.OnItemClickLitener() {
+                            @Override
+                            public void OnItemClickLitener(String strItem, View v) {
+                                Log.e("44444444444444444", strItem);
+                                if(tablist.size()>4) {
+                                gridlayout_drageable.removeView(v);
+                                gridlayout_undrageable.addTvItem(strItem);
+                                for (int i = 0; i < tablist.size(); i++) {
+                                    if (tablist.get(i).getTitle().equals(strItem)) {
                                         ChinaDiming.AlllistBean alllistBean1 = new ChinaDiming.AlllistBean();
                                         ChinaDiming.TablistBean tablistBean = tablist.get(i);
                                         alllistBean1.setTitle(tablistBean.getTitle());
                                         alllistBean1.setUrl(tablistBean.getUrl());
                                         alllist.add(alllistBean1);
                                         tablist.remove(i);
-                                        adapterFarmentChina.notifyDataSetChanged();
+                                        tab.remove(strItem);
                                     }
-                            }
-                        }
+                                }
+                                }else{
+                                    Toast.makeText(getActivity(), "删除数量不能少于4条", Toast.LENGTH_SHORT).show();
 
-                    });
+                                }
+                            }
+                        });
                     as=false;
                 }else{
                     Chinabianji.setText("编辑");
+                    adapterFarmentChina.shaxin(tab);
                     gridlayout_undrageable.setOnItemClickLitener(new MyGridLayout.OnItemClickLitener() {
                         @Override
                         public void OnItemClickLitener(String strItem, View v) {
@@ -246,7 +255,42 @@ public class ChinaFragment extends BaseFragment implements ChinaContract.View {
             }
         });
     }
-
-
+//    @Override
+//    public void onHiddenChanged(boolean hidden) {
+//        // TODO Auto-generated method stub
+//        super.onHiddenChanged(hidden);
+//        if (!hidden) {
+//            firstRefresh();
+//        }
+//    }
+//private boolean isGetData = false;
+//    @Override
+//    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
+//        //   进入当前Fragment
+//        if (enter && !isGetData) {
+//            isGetData = true;
+//            //   这里可以做网络请求或者需要的数据刷新操作
+//            Log.e("-----------","刷新了");
+//        } else {
+//            isGetData = false;
+//        }
+//        return super.onCreateAnimation(transit, enter, nextAnim);
+//    }
+//
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        if (!isGetData) {
+//            //   这里可以做网络请求或者需要的数据刷新操作
+//            Log.e("-----------","刷新了11111");
+//            isGetData = true;
+//        }
+//    }
+//
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        isGetData = false;
+//    }
 
 }
