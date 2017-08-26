@@ -10,9 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,14 +26,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
-import de.greenrobot.event.EventBus;
 
-import static android.os.Build.VERSION_CODES.O;
-import static com.jiyun.qcloud.dashixummoban.R.id.container;
-import static com.jiyun.qcloud.dashixummoban.R.id.gridlayout_drageable;
-import static com.jiyun.qcloud.dashixummoban.R.id.gridlayout_undrageable;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -194,6 +186,7 @@ public class ChinaFragment extends BaseFragment implements ChinaContract.View {
                                     tablist.add(tablistBean);
                                     alllist.remove(i);
                                     tab.add(strItem);
+                                    framentlist.add(new ChinaFragments(alllistBean.getUrl()));
                                 }
                             }
                         }
@@ -215,18 +208,18 @@ public class ChinaFragment extends BaseFragment implements ChinaContract.View {
                                         alllist.add(alllistBean1);
                                         tablist.remove(i);
                                         tab.remove(strItem);
+                                        framentlist.remove(i);
                                     }
                                 }
                                 }else{
                                     Toast.makeText(getActivity(), "删除数量不能少于4条", Toast.LENGTH_SHORT).show();
-
                                 }
                             }
                         });
                     as=false;
                 }else{
                     Chinabianji.setText("编辑");
-                    adapterFarmentChina.shaxin(tab);
+                    adapterFarmentChina.notifyDataSetChanged();
                     gridlayout_undrageable.setOnItemClickLitener(new MyGridLayout.OnItemClickLitener() {
                         @Override
                         public void OnItemClickLitener(String strItem, View v) {
@@ -238,10 +231,8 @@ public class ChinaFragment extends BaseFragment implements ChinaContract.View {
                     gridlayout_drageable.setOnItemClickLitener(new MyGridLayout.OnItemClickLitener() {
                         @Override
                         public void OnItemClickLitener(String strItem, View v) {
-
 //                                    gridlayout_drageable.removeView(v);
 //                                    gridlayout_undrageable.addTvItem(strItem);
-
                         }
                     });
                     as=true;
