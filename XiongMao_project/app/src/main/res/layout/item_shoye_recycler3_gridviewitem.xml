@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:padding="15px"
+    android:background="#fff"
+    android:layout_height="wrap_content">
+<com.zhy.autolayout.AutoRelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="130px">
+    <ImageView
+        android:scaleType="fitXY"
+        android:id="@+id/item_shoye_recycler_gridview_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/item_shoye_recycler_gridview_text"
+        android:layout_width="120px"
+        android:layout_height="50px"
+        android:gravity="center"
+        android:text="live"
+        android:textColor="#fff"
+        android:background="@drawable/lpanda_bottom_gra"
+        android:layout_alignBottom="@+id/item_shoye_recycler_gridview_image"
+        />
+
+    <ImageView
+        android:layout_width="20px"
+        android:layout_height="20px"
+        android:layout_margin="13px"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        app:srcCompat="@drawable/home_hot_live_icon" />
+</com.zhy.autolayout.AutoRelativeLayout>
+
+    <TextView
+        android:layout_marginTop="10px"
+        android:textSize="11sp"
+        android:id="@+id/item_shoye_recycler_gridview_tilte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20px"
+        android:text="TextView" />
+</com.zhy.autolayout.AutoLinearLayout>
