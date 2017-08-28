@@ -2,9 +2,13 @@ package com.jiyun.qcloud.dashixummoban.app;
 
 import com.jiyun.qcloud.dashixummoban.base.BaseActivity;
 import com.jiyun.qcloud.dashixummoban.base.BaseFragment;
+//import com.jiyun.qcloud.dashixummoban.error.CrashHandler;
 import com.jiyun.qcloud.dashixummoban.error.CrashHandler;
 import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.UMShareAPI;
+
+import io.vov.vitamio.Vitamio;
+import retrofit2.http.HEAD;
 
 /**
  * Created by chj on 2017/8/20.
@@ -26,6 +30,7 @@ public class App extends  BaseApplication implements Thread.UncaughtExceptionHan
     public void onCreate() {
         super.onCreate();
         UMShareAPI.get(this);
+        Vitamio.isInitialized(this);
         CrashHandler crashHandler = CrashHandler.getInstance();
         crashHandler.init(getApplicationContext());
 

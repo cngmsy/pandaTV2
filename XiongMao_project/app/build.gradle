@@ -71,4 +71,5 @@ dependencies {
     compile 'com.android.support:design:26.0.0-alpha1'
     compile 'de.greenrobot:eventbus:3.0.0-beta1'
     compile 'fm.jiecao:jiecaovideoplayer:2.0'
+    compile project(':vitamio')
 }

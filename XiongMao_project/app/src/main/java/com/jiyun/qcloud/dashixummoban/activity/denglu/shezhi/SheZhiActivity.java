@@ -20,7 +20,6 @@ public class SheZhiActivity extends AppCompatActivity {
     ImageView shezhiDelete;
     @BindView(R.id.glide_huancun)
     TextView glideHuancun;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
