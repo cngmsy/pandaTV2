@@ -41,9 +41,9 @@
         android:padding="10px">
 
         <com.zhy.autolayout.AutoRelativeLayout
-            android:layout_marginTop="10px"
             android:layout_width="match_parent"
             android:layout_height="150px"
+            android:layout_marginTop="10px"
             android:background="#fff">
 
             <ImageView
@@ -58,7 +58,6 @@
                 app:srcCompat="@drawable/personal_login_head" />
 
             <TextView
-                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -149,6 +148,7 @@
         </com.zhy.autolayout.AutoRelativeLayout>
 
         <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/shezhi"
             android:layout_width="match_parent"
             android:layout_height="110px"
             android:layout_marginTop="10px"
