@@ -2,6 +2,7 @@ package com.jiyun.qcloud.dashixummoban.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -11,10 +12,14 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.jiyun.qcloud.dashixummoban.R;
 import com.jiyun.qcloud.dashixummoban.entity.china.ChinaXiangqing;
+import com.jiyun.qcloud.dashixummoban.entity.china.JiekouChina;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+
+import static android.media.CamcorderProfile.get;
 
 /**
  * Created by KING on 2017/8/24 21:58
@@ -26,10 +31,11 @@ public class AdapterXrcychina extends RecyclerView.Adapter {
     private Context context;
     private boolean a=true;
     private Neibulei holder1;
-
-    public AdapterXrcychina(List<ChinaXiangqing.LiveBean> xiangqingList, Context context) {
+    private JiekouChina jiekouChina;
+    public AdapterXrcychina(List<ChinaXiangqing.LiveBean> xiangqingList, Context context,JiekouChina jiekouChina) {
         this.xiangqingList = xiangqingList;
         this.context = context;
+        this.jiekouChina=jiekouChina;
     }
 
     @Override
@@ -41,8 +47,13 @@ public class AdapterXrcychina extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         holder1 = (Neibulei) holder;
-        holder1.videocontroller1.setUp(xiangqingList.get(position).getImage(),"");
+        Log.e("44444444444444",xiangqingList.get(position).getImage());
         Glide.with(context).asBitmap().load(xiangqingList.get(position).getImage()).into(holder1.videocontroller1.ivThumb);
+        String id = xiangqingList.get(position).getId();
+        holder1.videocontroller1.setUp(xiangqingList.get(position).getImage(),"");
+        jiekouChina.shipinbofang(id,holder1.videocontroller1);
+
+
         holder1.zhengzaizhibochina.setText("[正在直播]"+xiangqingList.get(position).getTitle());
         holder1.xianshineirong1.setImageResource(R.drawable.com_facebook_tooltip_blue_bottomnub);
         holder1.xiangqingneirong.setText(xiangqingList.get(position).getBrief());

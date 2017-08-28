@@ -32,6 +32,15 @@ public class ChinaXiangqing {
         private String image;
         private String id;
         private String order;
+        private String path;
+
+        public String getPath() {
+            return path;
+        }
+
+        public void setPath(String path) {
+            this.path = path;
+        }
 
         public String getTitle() {
             return title;
