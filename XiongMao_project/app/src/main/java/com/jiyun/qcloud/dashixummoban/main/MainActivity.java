@@ -22,6 +22,7 @@ import com.jiyun.qcloud.dashixummoban.manager.ActivityCollector;
 import com.jiyun.qcloud.dashixummoban.manager.FragmentMager;
 import com.jiyun.qcloud.dashixummoban.ui.bobao.BobaoFragment;
 import com.jiyun.qcloud.dashixummoban.ui.china.ChinaFragment;
+import com.jiyun.qcloud.dashixummoban.ui.china.ChinaPresenter;
 import com.jiyun.qcloud.dashixummoban.ui.home.HomePageFragment;
 import com.jiyun.qcloud.dashixummoban.ui.home.HomePresenter;
 import com.jiyun.qcloud.dashixummoban.ui.live.LivePageFragment;
@@ -130,7 +131,8 @@ public class MainActivity extends BaseActivity {
                 textView2.setVisibility(View.VISIBLE);
                 hudongImg.setVisibility(View.INVISIBLE);
                 textView2.setText("直播中国");
-                FragmentMager.getInstance().start(R.id.container, ChinaFragment.class, false).build();
+                ChinaFragment build = (ChinaFragment) FragmentMager.getInstance().start(R.id.container, ChinaFragment.class, false).build();
+                new ChinaPresenter(build);
                 break;
             case R.id.homeBottomGroup:
                 break;

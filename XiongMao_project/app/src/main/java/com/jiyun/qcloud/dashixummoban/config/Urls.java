@@ -30,4 +30,5 @@ public class Urls {
     public static final String IMGCODE = "http://reg.cntv.cn/simple/verificationCode.action";
     //邮箱注册
     public static final String EMAILREGISTER = "https://reg.cntv.cn/api/register.action";
+    public static final String CHINADIMING = BASEURL+"PAGE14501775094142282/index.json";
 }
