@@ -1,5 +1,6 @@
 package com.jiyun.qcloud.dashixummoban.activity.jctv;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.drawable.BitmapDrawable;
@@ -105,6 +106,9 @@ public class JCVideoActivity extends BaseActivity implements JCVideo.View {
 
     @Override
     protected void initView() {
+
+        //获取系统类
+        am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         //获取到屏幕的宽高 调节音量时用
         WindowManager wm = this.getWindowManager();
         width = wm.getDefaultDisplay().getWidth();
@@ -348,7 +352,7 @@ public class JCVideoActivity extends BaseActivity implements JCVideo.View {
             }
         });
 
-        videoViewLength.setOnTouchListener(new View.OnTouchListener() {
+        videoView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 float y = motionEvent.getY();
@@ -414,6 +418,7 @@ public class JCVideoActivity extends BaseActivity implements JCVideo.View {
     }
 //调节音量的方法
     private void yingliang(float detlay) {
+        Log.e("xxxxx","666666666");
         //获取系统最大音量
         int max = am.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
         //获取当前音量

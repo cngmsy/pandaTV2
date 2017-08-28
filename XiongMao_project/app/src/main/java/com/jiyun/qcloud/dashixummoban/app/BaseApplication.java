@@ -35,7 +35,7 @@ public class BaseApplication extends MultiDexApplication {
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.ICE_CREAM_SANDWICH){
             registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
                 @Override
-                 public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+                public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
 
                 }
 
