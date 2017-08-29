@@ -2,6 +2,13 @@ package com.jiyun.qcloud.dashixummoban.app;
 
 import com.jiyun.qcloud.dashixummoban.base.BaseActivity;
 import com.jiyun.qcloud.dashixummoban.base.BaseFragment;
+//import com.jiyun.qcloud.dashixummoban.error.CrashHandler;
+import com.jiyun.qcloud.dashixummoban.error.CrashHandler;
+import com.umeng.socialize.PlatformConfig;
+import com.umeng.socialize.UMShareAPI;
+
+import io.vov.vitamio.Vitamio;
+import retrofit2.http.HEAD;
 
 import io.vov.vitamio.Vitamio;
 
@@ -11,13 +18,30 @@ import io.vov.vitamio.Vitamio;
 
 public class App extends  BaseApplication implements Thread.UncaughtExceptionHandler{
 
+
     public static BaseActivity mBaseActivity;
     public static BaseFragment lastfragment;
+    {
 
+<<<<<<< HEAD
     @Override
     public void onCreate() {
         super.onCreate();
         Vitamio.isInitialized(this);
+=======
+        PlatformConfig.setWeixin("wx967daebe835fbeac", "5bb696d9ccd75a38c8a0bfe0675559b3");
+        PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
+        PlatformConfig.setSinaWeibo("3921700954", "04b48b094faeb16683c32669824ebdad", "http://sns.whalecloud.com");
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        UMShareAPI.get(this);
+        Vitamio.isInitialized(this);
+        CrashHandler crashHandler = CrashHandler.getInstance();
+        crashHandler.init(getApplicationContext());
+>>>>>>> 877f4f683c6590ac372351468317b5a7776d726f
     }
 
     @Override

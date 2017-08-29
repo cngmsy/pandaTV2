@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
+        android:layout_margin="2px"
+        android:id="@+id/videocontroller1"
+        android:layout_width="match_parent"
+        android:layout_height="400px" />
+    <TextView
+        android:id="@+id/zhengzaizhibochina"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_margin="1px"
+            android:text="简介"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_marginLeft="300px"
+            android:id="@+id/xianshineirong"
+            android:layout_width="30px"
+            android:layout_height="30px" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/neirongjianjie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</com.zhy.autolayout.AutoLinearLayout>

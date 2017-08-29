@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jiyun.qcloud.dashixummoban.activity.jctv.JCVideoActivity">
+    <RelativeLayout
+        android:id="@+id/fu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <com.jiyun.qcloud.dashixummoban.activity.jctv.fullScreen
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="130px">
+
+
+            <LinearLayout
+                android:id="@+id/liear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/pe_top_txt_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:scaleType="center"
+                    android:id="@+id/action"
+                    android:layout_width="100px"
+                    android:layout_height="100px"
+                    android:layout_marginLeft="20px"
+                    android:src="@drawable/home_play_icon" />
+
+                <TextView
+                    android:id="@+id/nowtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="00:00:00"
+                    android:textColor="#fff" />
+
+                <SeekBar
+                    android:id="@+id/videoView_length"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/alltime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20px"
+                    android:text="00:00:00"
+                    android:textColor="#919191" />
+
+                <TextView
+                    android:background="#00acff"
+                    android:textColor="#fff"
+                    android:text="高清"
+                    android:padding="10px"
+                    android:gravity="center"
+                    android:layout_margin="15px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="80px"
+                    android:layout_height="80px"
+                    android:src="@drawable/volume_continue" />
+
+                <SeekBar
+                    android:layout_width="250px"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:background="@drawable/aaa"
+            android:id="@+id/relat"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="130px">
+
+
+            <TextView
+                android:textSize="20sp"
+                android:textColor="#fff"
+                android:id="@+id/jc_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="TextView" />
+
+            <ImageView
+                android:id="@+id/jc_fengxiang"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10px"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/play_fullsrcee_share" />
+
+            <ImageView
+                android:id="@+id/jc_shoucang"
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:layout_marginRight="10px"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/jc_fengxiang"
+                android:layout_toStartOf="@+id/jc_fengxiang"
+                app:srcCompat="@drawable/play_fullsrcee_collect" />
+
+            <ImageView
+                android:id="@+id/jv_return"
+                android:layout_width="60px"
+                android:layout_height="60px"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:layout_marginStart="20px"
+                app:srcCompat="@drawable/ic_back_white" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/chongbo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_play_circle_outline_white_36dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/zi"
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="重播"
+        android:layout_below="@+id/chongbo"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

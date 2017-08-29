@@ -79,7 +79,8 @@ public class OkBaseHttpImpl implements IBaseHttp {
                     @Override
                     public void run() {
                         //执行在主线程
-                        callback.onError(404,e.getMessage().toString());
+                        //我注释了！！！要不报空指针
+//                        callback.onError(404,e.getMessage().toString());
                     }
                 });
             }

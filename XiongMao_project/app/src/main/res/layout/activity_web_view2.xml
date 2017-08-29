@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jiyun.qcloud.dashixummoban.activity.WebView2Activity">
+
+    <RelativeLayout
+        android:id="@+id/web2_relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/web2_return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50px"
+            android:layout_marginStart="50px"
+            app:srcCompat="@drawable/personal_back_img" />
+
+        <TextView
+            android:id="@+id/web2_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text=""
+            android:textColor="#fff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/web2_relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
+
+            <Button
+                android:id="@+id/web2_sc"
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:layout_marginRight="30px"
+                android:background="@drawable/personal_shoucang_img" />
+
+            <Button
+                android:id="@+id/web2_fx"
+                android:layout_width="80px"
+                android:layout_height="80px"
+                android:layout_marginLeft="30px"
+                android:background="@drawable/pe_share_img" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/web2_relativeLayout2"
+        android:layout_below="@+id/web2_relativeLayout">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/web2_lin1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
+                android:id="@+id/videocontroller1"
+                android:layout_width="match_parent"
+                android:layout_height="220dp" />
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:layout_marginTop="15px"
+                    android:background="@color/colorWhite"
+                    android:text="首播时间："
+                    android:textSize="30px" />
+
+                <com.zhy.autolayout.AutoRelativeLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30px"
+                        android:layout_marginTop="15px"
+                        android:text="栏目介绍"
+                        android:textSize="25px"
+                        android:textStyle="normal" />
+
+                    <Button
+                        android:id="@+id/web2_bt"
+                        android:layout_width="60px"
+                        android:layout_height="30px"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/com_facebook_tooltip_blue_bottomnub" />
+                </com.zhy.autolayout.AutoRelativeLayout>
+
+
+            </com.zhy.autolayout.AutoLinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorHuise"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/web2_jieshao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:textSize="25px" />
+
+                    <android.support.design.widget.TabLayout
+                        android:id="@+id/web2_tab"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30px"
+                        android:layout_marginRight="30px"
+                        android:layout_marginTop="30px"
+                        android:background="@color/colorWhite"></android.support.design.widget.TabLayout>
+
+                    <android.support.v4.view.ViewPager
+                        android:layout_marginLeft="30px"
+                        android:layout_marginRight="30px"
+                        android:id="@+id/web2_pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></android.support.v4.view.ViewPager>
+
+                </LinearLayout>
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/web2_lin2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/web2_title2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15px"
+                android:layout_marginTop="30px"
+                android:text="11111"
+                android:textSize="40px"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/web2_timer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15px"
+                android:layout_marginTop="30px"
+                android:text="2222222"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/web2_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15px"
+                android:layout_marginTop="25px"
+                android:textSize="30px" />
+        </com.zhy.autolayout.AutoLinearLayout>
+    </FrameLayout>
+
+
+</com.zhy.autolayout.AutoRelativeLayout>
