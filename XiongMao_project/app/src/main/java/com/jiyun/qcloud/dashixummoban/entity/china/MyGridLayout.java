@@ -52,7 +52,7 @@ public class MyGridLayout extends GridLayout implements OnLongClickListener,
 	}
 
 	private void initView() {
-		setColumnCount(3);
+		setColumnCount(4);
 		setLayoutTransition(new LayoutTransition());
 	}
 
