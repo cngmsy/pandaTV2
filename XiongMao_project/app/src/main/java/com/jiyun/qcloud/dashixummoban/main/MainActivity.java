@@ -11,6 +11,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jiyun.qcloud.dashixummoban.DataCleanManager;
 import com.jiyun.qcloud.dashixummoban.R;
 import com.jiyun.qcloud.dashixummoban.app.App;
 import com.jiyun.qcloud.dashixummoban.base.BaseActivity;
@@ -83,7 +84,7 @@ public class MainActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.homePage, R.id.homePandaLive, R.id.homeRollVideo, R.id.homePandaBroadcast, R.id.homeLiveChina, R.id.homeBottomGroup})
+    @OnClick({R.id.homePage, R.id.homePandaLive, R.id.homeRollVideo, R.id.homePandaBroadcast, R.id.homeLiveChina, R.id.homeBottomGroup, R.id.personImg})
     public void onClicks(View view) {
         switch (view.getId()) {
             case R.id.homePage:
@@ -127,6 +128,11 @@ public class MainActivity extends BaseActivity {
                 FragmentMager.getInstance().start(R.id.container, ChinaFragment.class, false).build();
                 break;
             case R.id.homeBottomGroup:
+                break;
+            case R.id.personImg:
+                DataCleanManager dataCleanManager = new DataCleanManager();
+                dataCleanManager.cleanInternalCache(this);
+                Toast.makeText(this, "已清理缓存", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
