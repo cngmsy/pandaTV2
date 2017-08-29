@@ -386,7 +386,7 @@ public class ShoyeXRecyclerAdapter extends RecyclerView.Adapter{
     private class XiuchangHolder extends RecyclerView.ViewHolder {
         private final View inflate31;
         TextView title;
-        GridView shoye_item3_gridview;
+        MyGridView shoye_item3_gridview;
         public XiuchangHolder(View inflate3) {
             super(inflate3);
              inflate31 = inflate3;

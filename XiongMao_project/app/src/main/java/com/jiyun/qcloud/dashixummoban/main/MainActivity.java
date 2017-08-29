@@ -12,7 +12,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jiyun.qcloud.dashixummoban.DataCleanManager;
 import com.jiyun.qcloud.dashixummoban.R;
 import com.jiyun.qcloud.dashixummoban.activity.denglu.LoginActivity;
 import com.jiyun.qcloud.dashixummoban.activity.hudong.HuDongActivity;
