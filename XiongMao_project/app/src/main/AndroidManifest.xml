@@ -32,15 +32,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
+
         <activity android:name=".main.WelComeActivity"></activity>
         <activity android:name=".main.MainActivity"></activity>
         <activity android:name=".activity.WebView2Activity" />
         <activity android:name=".ui.web2.VideoActivity"></activity>
 
 
-=======
->>>>>>> 3d526703e5282257d6b9823ad2018f7d0476210e
+
         <!-- 屏幕适配 -->
         <meta-data
             android:name="design_width"
@@ -48,10 +47,7 @@
         <meta-data
             android:name="design_height"
             android:value="1280" />
-<<<<<<< HEAD
 
-=======
->>>>>>> 3d526703e5282257d6b9823ad2018f7d0476210e
 
         <activity android:name=".activity.hudong.HuDongActivity" />
         <activity android:name=".activity.WebViewActivity" />

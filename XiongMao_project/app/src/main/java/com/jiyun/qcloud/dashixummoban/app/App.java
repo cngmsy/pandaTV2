@@ -29,14 +29,10 @@ public class App extends  BaseApplication implements Thread.UncaughtExceptionHan
     @Override
     public void onCreate() {
         super.onCreate();
-<<<<<<< HEAD
-=======
         UMShareAPI.get(this);
         Vitamio.isInitialized(this);
         CrashHandler crashHandler = CrashHandler.getInstance();
         crashHandler.init(getApplicationContext());
-
->>>>>>> 3d526703e5282257d6b9823ad2018f7d0476210e
     }
 
     @Override

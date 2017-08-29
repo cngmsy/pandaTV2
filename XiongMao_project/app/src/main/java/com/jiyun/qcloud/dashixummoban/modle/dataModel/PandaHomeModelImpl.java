@@ -19,11 +19,8 @@ import static com.jiyun.qcloud.dashixummoban.config.Urls.PANDAHOME_JINGCAI;
 
 public class PandaHomeModelImpl implements IPandaHomeModel {
 
-<<<<<<< HEAD
-=======
 
 //首页的数据
->>>>>>> 3d526703e5282257d6b9823ad2018f7d0476210e
     @Override
     public void loadHomeList(NetWorkCallBack<PandaHome> callback) {
         iHttp.get(Urls.PANDAHOME,null,callback);

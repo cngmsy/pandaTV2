@@ -8,11 +8,9 @@ import com.jiyun.qcloud.dashixummoban.modle.dataModel.IPandaHomeModel;
 import com.jiyun.qcloud.dashixummoban.modle.dataModel.PandaHomeModelImpl;
 import com.jiyun.qcloud.dashixummoban.modle.net.callback.NetWorkCallBack;
 
-<<<<<<< HEAD
+
 import java.util.Map;
-=======
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
->>>>>>> 3d526703e5282257d6b9823ad2018f7d0476210e
 
 /**
  * Created by xingge on 2017/7/26.

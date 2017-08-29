@@ -89,12 +89,8 @@ public class MainActivity extends BaseActivity {
 
     }
 
-
-<<<<<<< HEAD
-    @OnClick({R.id.homePage, R.id.homePandaLive, R.id.homeRollVideo, R.id.homePandaBroadcast, R.id.homeLiveChina, R.id.homeBottomGroup, R.id.personImg})
-=======
     @OnClick({R.id.homePage, R.id.homePandaLive, R.id.homeRollVideo, R.id.homePandaBroadcast, R.id.homeLiveChina, R.id.homeBottomGroup,R.id.personImg,R.id.hudongImg})
->>>>>>> 3d526703e5282257d6b9823ad2018f7d0476210e
+
     public void onClicks(View view) {
         switch (view.getId()) {
             case R.id.homePage:
@@ -141,12 +137,6 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.homeBottomGroup:
                 break;
-<<<<<<< HEAD
-            case R.id.personImg:
-                DataCleanManager dataCleanManager = new DataCleanManager();
-                dataCleanManager.cleanInternalCache(this);
-                Toast.makeText(this, "已清理缓存", Toast.LENGTH_SHORT).show();
-=======
             //点击登录
             case R.id.personImg:
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
@@ -156,7 +146,6 @@ public class MainActivity extends BaseActivity {
             case R.id.hudongImg:
                 Intent intent1 = new Intent(MainActivity.this, HuDongActivity.class);
                 startActivity(intent1);
->>>>>>> 3d526703e5282257d6b9823ad2018f7d0476210e
                 break;
         }
     }

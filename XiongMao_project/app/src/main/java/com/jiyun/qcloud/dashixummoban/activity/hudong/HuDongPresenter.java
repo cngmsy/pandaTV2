@@ -10,6 +10,7 @@ import com.jiyun.qcloud.dashixummoban.modle.dataModel.PandaHomeModelImpl;
 import com.jiyun.qcloud.dashixummoban.modle.net.callback.NetWorkCallBack;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/8/23.
@@ -48,5 +49,20 @@ public class HuDongPresenter  implements HuDong.Presenter{
 
             }
         });
+    }
+
+    @Override
+    public void second(String url) {
+
+    }
+
+    @Override
+    public void threed(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void four(Map<String, String> map) {
+
     }
 }
