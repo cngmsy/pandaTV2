@@ -22,7 +22,7 @@ import butterknife.OnClick;
 public class WebViewActivity extends BaseActivity {
 
 
-    @BindView(R.id.web_return)
+      @BindView(R.id.web_return)
     ImageView webReturn;
     @BindView(R.id.web_title)
     TextView webTitle;
