@@ -2,11 +2,17 @@ package com.jiyun.qcloud.dashixummoban.ui.home;
 
 
 import com.jiyun.qcloud.dashixummoban.entity.PandaHome;
+import com.jiyun.qcloud.dashixummoban.entity.shoye.GunGunBean;
+import com.jiyun.qcloud.dashixummoban.entity.shoye.JingCaiYiKe;
 import com.jiyun.qcloud.dashixummoban.modle.dataModel.IPandaHomeModel;
 import com.jiyun.qcloud.dashixummoban.modle.dataModel.PandaHomeModelImpl;
 import com.jiyun.qcloud.dashixummoban.modle.net.callback.NetWorkCallBack;
 
+<<<<<<< HEAD
 import java.util.Map;
+=======
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+>>>>>>> 3d526703e5282257d6b9823ad2018f7d0476210e
 
 /**
  * Created by xingge on 2017/7/26.
@@ -31,8 +37,37 @@ public class HomePresenter implements HomeContract.Presenter {
         homeView.showProgress();
         homeModel.loadHomeList(new NetWorkCallBack<PandaHome>() {
             @Override
-            public void onSuccess(PandaHome pandaHome) {
-                homeView.showHomeListData(pandaHome);
+            public void onSuccess(final PandaHome pandaHome) {
+                //请求成功后再次请求一下精彩一刻的数据
+                homeModel.loadHuDongList_JingCaiYiKe(new NetWorkCallBack<JingCaiYiKe>() {
+                    @Override
+                    public void onSuccess(final JingCaiYiKe jingCaiYiKe) {
+                      homeModel.loadHuDongList_GunGunShiPing(new NetWorkCallBack<GunGunBean>() {
+                          @Override
+                          public void onSuccess(GunGunBean gunGunBean) {
+                              homeView.showHomeListData(pandaHome,jingCaiYiKe,gunGunBean);
+                          }
+                          @Override
+                          public void onError(int errorCode, String errorMsg) {
+                          }
+
+                          @Override
+                          public void onFail(String netOff) {
+
+                          }
+                      });
+                    }
+
+                    @Override
+                    public void onError(int errorCode, String errorMsg) {
+
+                    }
+
+                    @Override
+                    public void onFail(String netOff) {
+
+                    }
+                });
                 homeView.dimissProgress();
             }
 
