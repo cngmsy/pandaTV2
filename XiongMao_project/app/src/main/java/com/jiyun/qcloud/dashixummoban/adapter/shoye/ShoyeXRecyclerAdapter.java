@@ -19,9 +19,11 @@ import com.bumptech.glide.Glide;
 import com.jiyun.qcloud.dashixummoban.R;
 import com.jiyun.qcloud.dashixummoban.activity.jctv.JCVideoActivity;
 import com.jiyun.qcloud.dashixummoban.activity.vitamio.VitamioActivity;
+import com.jiyun.qcloud.dashixummoban.base.BaseActivity;
 import com.jiyun.qcloud.dashixummoban.entity.PandaHome;
 import com.jiyun.qcloud.dashixummoban.entity.shoye.GunGunBean;
 import com.jiyun.qcloud.dashixummoban.entity.shoye.JingCaiYiKe;
+import com.jiyun.qcloud.dashixummoban.view.MyGridView;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoader;
@@ -221,6 +223,7 @@ public class ShoyeXRecyclerAdapter extends RecyclerView.Adapter{
                 PandaHome.DataBean.CctvBean cctv = (PandaHome.DataBean.CctvBean) listdata.get(position);
                 String title2 = cctv.getTitle();
                 jingcaiHolder.shoye_item4_title.setText(title2);
+
                 jingcaiHolder.shoye_item4_gridview.setAdapter(new BaseAdapter() {
                     @Override
                     public int getCount() {
@@ -273,48 +276,8 @@ public class ShoyeXRecyclerAdapter extends RecyclerView.Adapter{
                 gungunHolder.shoye_item5_title.setText(listBeanXX.getTitle());
                 //接下来是给listview的item进行赋值了
                 //将传来的滚滚视频的结合拿到
-                gungunHolder.shoye_item5_listview.setAdapter(new BaseAdapter() {
-                    @Override
-                    public int getCount() {
-                        return gunGunBeanList.size();
-                    }
-
-                    @Override
-                    public Object getItem(int i) {
-                        return gunGunBeanList.get(i);
-                    }
-
-                    @Override
-                    public long getItemId(int i) {
-                        return i;
-                    }
-
-                    @Override
-                    public View getView(int i, View view, ViewGroup viewGroup) {
-                        View inflate = LayoutInflater.from(context).inflate(R.layout.item_shoye_recycler5_listviewitem, null);
-                        ImageView image = inflate.findViewById(R.id.item_shoye_recycler5_listviewitme_image);
-                        TextView text = inflate.findViewById(R.id.item_shoye_recycler5_listviewitme_text);
-                        TextView time = inflate.findViewById(R.id.item_shoye_recycler5_listviewitme_time);
-                        TextView playlength = inflate.findViewById(R.id.item_shoye_recycler5_listviewitme_playlength);
-
-                        final GunGunBean.ListBean listBean = gunGunBeanList.get(i);
-                        Glide.with(context).load(listBean.getImage()).into(image);
-                        text.setText(listBean.getTitle());
-                        time.setText(listBean.getDaytime());
-                        playlength.setText(listBean.getVideoLength());
-                        //监听
-                        image.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                String pid1 = listBean.getPid();
-                                Intent intent = new Intent(context, JCVideoActivity.class);
-                                intent.putExtra("mp4","http://115.182.35.91/api/getVideoInfoForCBox.do?pid="+pid1);
-                                context.startActivity(intent);
-                            }
-                        });
-                        return inflate;
-                    }
-                });
+                gungunHolder.shoye_item5_listview.setAdapter(new ListViewAdapter());
+                setListViewHeightBasedOnChildren(gungunHolder.shoye_item5_listview);
                 break;
             case CHINA:
                 ChinaHolder chinaHolder= (ChinaHolder) holder;
@@ -435,7 +398,7 @@ public class ShoyeXRecyclerAdapter extends RecyclerView.Adapter{
     private class JingcaiHolder extends RecyclerView.ViewHolder {
         private final View inflate41;
         TextView shoye_item4_title;
-        GridView shoye_item4_gridview;
+        MyGridView shoye_item4_gridview;
         public JingcaiHolder(View inflate4) {
             super(inflate4);
              inflate41 = inflate4;
@@ -461,7 +424,7 @@ public class ShoyeXRecyclerAdapter extends RecyclerView.Adapter{
     private class ChinaHolder extends RecyclerView.ViewHolder {
         private final View inflate61;
         TextView shoye_item6_title;
-        GridView shoye_item6_gridview;
+        MyGridView shoye_item6_gridview;
         public ChinaHolder(View inflate6) {
             super(inflate6);
              inflate61 = inflate6;
@@ -470,7 +433,69 @@ public class ShoyeXRecyclerAdapter extends RecyclerView.Adapter{
         }
     }
 
+    class ListViewAdapter extends BaseAdapter{
+        @Override
+        public int getCount() {
+            return gunGunBeanList.size();
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return gunGunBeanList.get(i);
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return i;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.item_shoye_recycler5_listviewitem, null);
+            ImageView image = inflate.findViewById(R.id.item_shoye_recycler5_listviewitme_image);
+            TextView text = inflate.findViewById(R.id.item_shoye_recycler5_listviewitme_text);
+            TextView time = inflate.findViewById(R.id.item_shoye_recycler5_listviewitme_time);
+            TextView playlength = inflate.findViewById(R.id.item_shoye_recycler5_listviewitme_playlength);
+
+            final GunGunBean.ListBean listBean = gunGunBeanList.get(i);
+            Glide.with(context).load(listBean.getImage()).into(image);
+            text.setText(listBean.getTitle());
+            time.setText(listBean.getDaytime());
+            playlength.setText(listBean.getVideoLength());
+            //监听
+            image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String pid1 = listBean.getPid();
+                    Intent intent = new Intent(context, JCVideoActivity.class);
+                    intent.putExtra("mp4","http://115.182.35.91/api/getVideoInfoForCBox.do?pid="+pid1);
+                    context.startActivity(intent);
+                }
+            });
+            return inflate;
+        }
+    }
 
 
+    //解决listview显示不全的问题
+    public void setListViewHeightBasedOnChildren(ListView listView) {
+        // 获取ListView对应的Adapter
+        ListViewAdapter listAdapter = (ListViewAdapter) listView.getAdapter();
+        if (listAdapter == null) {
+            return;
+        }
+        int totalHeight = 0;
+        for (int i = 0, len = listAdapter.getCount(); i < len; i++) {
+            // listAdapter.getCount()返回数据项的数目
+            View listItem = listAdapter.getView(i, null, listView);
+            // 计算子项View 的宽高
+            listItem.measure(0, 0);
+            // 统计所有子项的总高度
+            totalHeight += listItem.getMeasuredHeight();
+        }
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight()* (listAdapter.getCount() - 1));
+        listView.setLayoutParams(params);
+    }
 
 }

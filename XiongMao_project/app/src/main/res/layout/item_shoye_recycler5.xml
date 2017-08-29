@@ -26,7 +26,7 @@
     <ListView
         android:id="@+id/shoye_item5_listview"
         android:layout_width="match_parent"
-        android:layout_height="790px"
+        android:layout_height="wrap_content"
        ></ListView>
 
 </com.zhy.autolayout.AutoLinearLayout>

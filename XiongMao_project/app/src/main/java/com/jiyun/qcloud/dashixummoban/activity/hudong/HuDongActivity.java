@@ -3,6 +3,7 @@ package com.jiyun.qcloud.dashixummoban.activity.hudong;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
+import android.widget.ImageView;
 
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.jiyun.qcloud.dashixummoban.R;
@@ -15,8 +16,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static android.R.attr.x;
+import butterknife.OnClick;
 
 public class HuDongActivity extends BaseActivity implements HuDong.Presenter, HuDong.View {
 
@@ -24,7 +24,9 @@ public class HuDongActivity extends BaseActivity implements HuDong.Presenter, Hu
     List<ShoyeHudongBean.InteractiveBean> listdata = new ArrayList<>();
     @BindView(R.id.hudong_xrecycler)
     XRecyclerView hudongXrecycler;
-    Handler handler=new Handler();
+    Handler handler = new Handler();
+    @BindView(R.id.hudong_return)
+    ImageView hudongReturn;
     private HuDongRecyclerAdapter huDongRecyclerAdapter;
 
     @Override
@@ -36,7 +38,7 @@ public class HuDongActivity extends BaseActivity implements HuDong.Presenter, Hu
     @Override
     protected void initView() {
         //设置适配器
-         huDongRecyclerAdapter = new HuDongRecyclerAdapter(this,listdata);
+        huDongRecyclerAdapter = new HuDongRecyclerAdapter(this, listdata);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(HuDongActivity.this);
         hudongXrecycler.setLayoutManager(linearLayoutManager);
         hudongXrecycler.setAdapter(huDongRecyclerAdapter);
@@ -51,7 +53,7 @@ public class HuDongActivity extends BaseActivity implements HuDong.Presenter, Hu
                     public void run() {
                         hudongXrecycler.refreshComplete();
                     }
-                },1500);
+                }, 1500);
 
 
             }
@@ -117,5 +119,10 @@ public class HuDongActivity extends BaseActivity implements HuDong.Presenter, Hu
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
+    }
+
+    @OnClick(R.id.hudong_return)
+    public void onViewClicked() {
+        finish();
     }
 }

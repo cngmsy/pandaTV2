@@ -4,7 +4,7 @@
     android:padding="20px"
     android:layout_margin="5px"
     android:background="#fff"
-    android:layout_height="1000px">
+    android:layout_height="wrap_content">
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="60px">
@@ -22,11 +22,11 @@
         android:layout_width="match_parent"
         android:layout_height="2px" />
 
-    <GridView
+    <com.jiyun.qcloud.dashixummoban.view.MyGridView
         android:id="@+id/shoye_item4_gridview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:numColumns="2"></GridView>
+        android:numColumns="2"></com.jiyun.qcloud.dashixummoban.view.MyGridView>
 
 </com.zhy.autolayout.AutoLinearLayout>
