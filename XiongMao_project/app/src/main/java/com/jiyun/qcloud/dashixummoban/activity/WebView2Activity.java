@@ -103,6 +103,7 @@ public class WebView2Activity extends BaseActivity implements Web2Contract.view,
     @Override
     protected void initData() {
         web2Bt.setOnClickListener(this);
+        web2Return.setOnClickListener(this);
     }
 
     @Override
@@ -171,7 +172,7 @@ public class WebView2Activity extends BaseActivity implements Web2Contract.view,
                 listname.add("精彩看点");
                 Bundle bundle = new Bundle();
                 bundle.putParcelableArrayList("A", list);
-                bundle.putString("B",id);
+                bundle.putString("B", id);
                 web2Fragment1.setArguments(bundle);
                 listfragment.add(web2Fragment1);
                 listfragment.add(web2Fragment2);
@@ -182,7 +183,7 @@ public class WebView2Activity extends BaseActivity implements Web2Contract.view,
                 listname.add("高清完整");
                 Bundle bundle = new Bundle();
                 bundle.putParcelableArrayList("A", list);
-              bundle.putString("B",id);
+                bundle.putString("B", id);
                 web2Fragment1.setArguments(bundle);
                 listfragment.add(web2Fragment1);
                 handler.sendEmptyMessage(1);
@@ -256,7 +257,9 @@ public class WebView2Activity extends BaseActivity implements Web2Contract.view,
                     web2Bt.setBackgroundResource(R.drawable.com_facebook_tooltip_blue_topnub);
                     web2Jieshao.setVisibility(View.VISIBLE);
                 }
-
+                break;
+            case R.id.web2_return:
+                finish();
                 break;
         }
     }
