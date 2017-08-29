@@ -33,7 +33,6 @@ public class App extends  BaseApplication implements Thread.UncaughtExceptionHan
         Vitamio.isInitialized(this);
         CrashHandler crashHandler = CrashHandler.getInstance();
         crashHandler.init(getApplicationContext());
-
     }
 
     @Override

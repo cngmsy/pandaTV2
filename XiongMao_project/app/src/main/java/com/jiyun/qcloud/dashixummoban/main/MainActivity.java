@@ -12,6 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jiyun.qcloud.dashixummoban.DataCleanManager;
 import com.jiyun.qcloud.dashixummoban.R;
 import com.jiyun.qcloud.dashixummoban.activity.denglu.LoginActivity;
 import com.jiyun.qcloud.dashixummoban.activity.hudong.HuDongActivity;
@@ -88,8 +89,8 @@ public class MainActivity extends BaseActivity {
 
     }
 
-
     @OnClick({R.id.homePage, R.id.homePandaLive, R.id.homeRollVideo, R.id.homePandaBroadcast, R.id.homeLiveChina, R.id.homeBottomGroup,R.id.personImg,R.id.hudongImg})
+
     public void onClicks(View view) {
         switch (view.getId()) {
             case R.id.homePage:

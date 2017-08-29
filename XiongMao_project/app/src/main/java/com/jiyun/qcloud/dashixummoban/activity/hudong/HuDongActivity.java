@@ -13,6 +13,7 @@ import com.jiyun.qcloud.dashixummoban.entity.ShoyeHudongBean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -93,6 +94,21 @@ public class HuDongActivity extends BaseActivity implements HuDong.Presenter, Hu
 
     @Override
     public void start() {
+
+    }
+
+    @Override
+    public void second(String url) {
+
+    }
+
+    @Override
+    public void threed(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void four(Map<String, String> map) {
 
     }
 

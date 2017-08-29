@@ -7,6 +7,8 @@ import com.jiyun.qcloud.dashixummoban.modle.dataModel.IPandaHomeModel;
 import com.jiyun.qcloud.dashixummoban.modle.dataModel.PandaHomeModelImpl;
 import com.jiyun.qcloud.dashixummoban.modle.net.callback.NetWorkCallBack;
 
+import java.util.Map;
+
 /**
  * Created by Administrator on 2017/8/25.
  */
@@ -44,6 +46,21 @@ public class JCVideoPresenter implements JCVideo.Presenter {
             }
         });
 
+
+    }
+
+    @Override
+    public void second(String url) {
+
+    }
+
+    @Override
+    public void threed(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void four(Map<String, String> map) {
 
     }
 }

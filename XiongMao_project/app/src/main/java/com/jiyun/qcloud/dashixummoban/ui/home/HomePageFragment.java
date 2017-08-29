@@ -21,6 +21,7 @@ import com.jiyun.qcloud.dashixummoban.entity.shoye.JingCaiYiKe;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -111,6 +112,21 @@ public class HomePageFragment extends BaseFragment implements HomeContract.Prese
 
     @Override
     public void start() {
+
+    }
+
+    @Override
+    public void second(String url) {
+
+    }
+
+    @Override
+    public void threed(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void four(Map<String, String> map) {
 
     }
 
