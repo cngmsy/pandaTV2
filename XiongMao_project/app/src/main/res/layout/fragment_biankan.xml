@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_marginTop="10px"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:orientation="horizontal">
+
+        <EditText
+            android:background="@drawable/border"
+            android:textSize="27px"
+            android:paddingTop="5px"
+            android:paddingBottom="5px"
+            android:paddingLeft="15px"
+            android:hint="添加评论"
+            android:layout_marginLeft="10px"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <Button
+            android:gravity="center"
+            android:text="发送"
+            android:background="#467cf1"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"
+            android:layout_width="180px"
+            android:layout_height="match_parent" />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+
+
+</com.zhy.autolayout.AutoLinearLayout>

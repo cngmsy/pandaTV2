@@ -19,13 +19,15 @@ import com.jiyun.qcloud.dashixummoban.manager.FragmentMager;
 import com.jiyun.qcloud.dashixummoban.ui.bobao.BobaoFragment;
 import com.jiyun.qcloud.dashixummoban.ui.china.ChinaFragment;
 import com.jiyun.qcloud.dashixummoban.ui.home.HomePageFragment;
-import com.jiyun.qcloud.dashixummoban.ui.home.HomePresenter;
 import com.jiyun.qcloud.dashixummoban.ui.live.LivePageFragment;
+import com.jiyun.qcloud.dashixummoban.ui.live.livepagerfragment.LivepagerPresenter;
 import com.jiyun.qcloud.dashixummoban.ui.video.VideoFragment;
 import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import util.UpdateAppUtils;
+
 
 /**
  * Created by chj on 2017/8/20.
@@ -70,6 +72,11 @@ public class MainActivity extends BaseActivity   {
     @Override
     protected void initView() {
 
+        UpdateAppUtils.from(this)
+                .serverVersionCode(2)  //服务器versionCode
+                .serverVersionName("2.0") //服务器versionName
+                .apkPath("http://123.206.14.104:8080/FileUploadDemo/files/wxl.apk") //最新apk下载地址
+                .update();
     }
 
     @Override
@@ -88,7 +95,8 @@ public class MainActivity extends BaseActivity   {
                 break;
             case R.id.homePandaLive:
                 //熊猫直播
-                FragmentMager.getInstance().start(R.id.container, LivePageFragment.class,false).build();
+                LivePageFragment build = (LivePageFragment) FragmentMager.getInstance().start(R.id.container, LivePageFragment.class, false).build();
+                new LivepagerPresenter(build);
                 break;
             case R.id.homeRollVideo:
                 //滚滚视频

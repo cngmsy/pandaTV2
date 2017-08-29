@@ -19,6 +19,15 @@
             </intent-filter>
         </activity>
 
+        <!-- 屏幕适配 -->
+        <meta-data
+            android:name="design_width"
+            android:value="768" />
+        <meta-data
+            android:name="design_height"
+            android:value="1280" />
+
+        <activity android:name=".pandaliveactivity.PandaLiveActivity"></activity>
     </application>
 
 </manifest>

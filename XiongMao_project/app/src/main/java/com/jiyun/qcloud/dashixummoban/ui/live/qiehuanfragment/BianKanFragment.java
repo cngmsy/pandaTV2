@@ -1,4 +1,4 @@
-package com.jiyun.qcloud.dashixummoban.ui.home;
+package com.jiyun.qcloud.dashixummoban.ui.live.qiehuanfragment;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,16 +6,15 @@ import android.view.View;
 import com.jiyun.qcloud.dashixummoban.R;
 import com.jiyun.qcloud.dashixummoban.base.BaseFragment;
 
-
 /**
- * Created by chj on 2017/8/20.
+ * Created by ASUS on 2017/8/25.
  */
 
-public class HomePageFragment extends BaseFragment {
+public class BianKanFragment extends BaseFragment{
 
     @Override
     protected int getLayoutRes() {
-        return R.layout.fragment_home;
+        return R.layout.fragment_biankan;
     }
 
     @Override

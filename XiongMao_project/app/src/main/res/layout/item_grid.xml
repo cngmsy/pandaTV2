@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="5px">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#ffffff">
+
+            <ImageView
+                android:scaleType="fitXY"
+                android:id="@+id/image_live_grid"
+                android:layout_width="match_parent"
+                android:layout_height="140px" />
+            <TextView
+                android:textSize="10sp"
+                android:textColor="#fff"
+                android:background="@drawable/lpanda_bottom_gra"
+                android:gravity="center"
+                android:layout_alignBottom="@+id/image_live_grid"
+                android:text="Live"
+                android:paddingLeft="20px"
+                android:layout_width="120px"
+                android:layout_height="50px" />
+            <ImageView
+                android:layout_margin="15px"
+                android:layout_width="20px"
+                android:layout_height="20px"
+                app:srcCompat="@drawable/home_hot_live_icon"
+                android:layout_alignBottom="@+id/image_live_grid"/>
+            <TextView
+                android:layout_below="@+id/image_live_grid"
+                android:textColor="#000"
+                android:textSize="11.5sp"
+                android:id="@+id/tv_live_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

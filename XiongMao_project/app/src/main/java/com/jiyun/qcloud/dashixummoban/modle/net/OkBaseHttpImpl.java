@@ -51,7 +51,6 @@ public class OkBaseHttpImpl implements IBaseHttp {
         return okHttpUtils;
     }
 
-
     /**
      * 发送get请求
      * @param url 请求地址
@@ -83,7 +82,6 @@ public class OkBaseHttpImpl implements IBaseHttp {
                         callback.onError(404,e.getMessage().toString());
                     }
                 });
-
             }
 
             @Override
@@ -97,10 +95,8 @@ public class OkBaseHttpImpl implements IBaseHttp {
                         callback.onSuccess(getGeneric(jsonData,callback));
                     }
                 });
-
             }
         });
-
     }
 
     @Override

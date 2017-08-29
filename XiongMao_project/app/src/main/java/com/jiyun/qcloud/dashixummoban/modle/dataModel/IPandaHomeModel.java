@@ -9,6 +9,5 @@ import com.jiyun.qcloud.dashixummoban.modle.net.callback.NetWorkCallBack;
  */
 
 public interface IPandaHomeModel extends BaseModel {
-
     void loadHomeList(NetWorkCallBack<PandaHome> callback);
 }
