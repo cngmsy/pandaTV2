@@ -141,8 +141,14 @@ public class WebView2Activity extends BaseActivity implements Web2Contract.view,
 
         web2Fragment1.setIweb2fragment(new Web2Fragment1.Iweb2fragment() {
             @Override
-            public void linster(int poss) {
-                presenter.second(list.get(poss).getVid());
+            public void linster(int poss, String vid) {
+                presenter.second(vid);
+            }
+        });
+        web2Fragment2.setIweb2fragment2(new Web2Fragment2.Iweb2fragment2() {
+            @Override
+            public void linster(int poss, String vid) {
+                presenter.second(vid);
             }
         });
     }
@@ -174,6 +180,7 @@ public class WebView2Activity extends BaseActivity implements Web2Contract.view,
                 bundle.putParcelableArrayList("A", list);
                 bundle.putString("B", id);
                 web2Fragment1.setArguments(bundle);
+                web2Fragment2.setArguments(bundle);
                 listfragment.add(web2Fragment1);
                 listfragment.add(web2Fragment2);
                 handler.sendEmptyMessage(1);

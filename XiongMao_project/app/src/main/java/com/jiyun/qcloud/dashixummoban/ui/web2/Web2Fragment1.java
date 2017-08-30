@@ -74,7 +74,7 @@ public class Web2Fragment1 extends BaseFragment implements Web2Contract.view{
         web2Adapter.setiWeb2Adapterjiekou(new Web2Adapter.IWeb2Adapterjiekou() {
             @Override
             public void Linster(int poss) {
-                iweb2fragment.linster(poss);
+                iweb2fragment.linster(poss,list.get(poss).getVid());
             }
         });
         videoXrecycler.setLoadingListener(new com.jcodecraeer.xrecyclerview.XRecyclerView.LoadingListener() {
@@ -168,6 +168,6 @@ public class Web2Fragment1 extends BaseFragment implements Web2Contract.view{
     }
 
     public interface Iweb2fragment {
-        void linster(int poss);
+        void linster(int  vid,String vid1);
     }
 }

@@ -16,7 +16,7 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".app.App"
@@ -37,7 +37,6 @@
         <activity android:name=".main.MainActivity"></activity>
         <activity android:name=".activity.WebView2Activity" />
         <activity android:name=".ui.web2.VideoActivity"></activity>
-
 
 
         <!-- 屏幕适配 -->
@@ -72,6 +71,7 @@
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
@@ -87,6 +87,9 @@
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="59a3886707fe65453e0003c4"></meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
 
         <activity android:name=".activity.denglu.shezhi.SheZhiActivity"></activity>
 
