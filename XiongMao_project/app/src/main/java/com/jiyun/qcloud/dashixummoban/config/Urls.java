@@ -9,18 +9,13 @@ public class Urls {
 
     //服务器地址
     private static final String BASEURL = "http://www.ipanda.com/kehuduan/";
-    //首页
-<<<<<<< HEAD
-    public static final String PANDAHOME = BASEURL + "PAGE14501749764071042/index.json";
     //首页互动
     public static final String HUDONG = BASEURL + "PAGE14501767715521482/index.json";
-    //熊猫直播
-    public static final String PANDALIVE = BASEURL + "PAGE14501769230331752/index.json";
+
     //    熊猫直播tablayout标题
     public static final String PANDALIVETAB = BASEURL + "PAGE14501772263221982/index.json";
     //列表
     public static final String PAGELIST = BASEURL + "PAGE14501786751053212/index.json";
-=======
 
     public static final String PANDAHOME = BASEURL+"shouye/index.json";
     //获取精彩一刻的二级数据
@@ -30,19 +25,14 @@ public class Urls {
 
     //熊猫直播
     public static final String PANDALIVE = BASEURL + "PAGE14501769230331752/index.json";
-    //列表
 
-    public static final String PAGELIST = BASEURL+"PAGE14501786751053212/index.json";
     //首页互动
     public static final String HOMEHUDONG = BASEURL+"PAGE14501767715521482/index.json";
-
->>>>>>> 877f4f683c6590ac372351468317b5a7776d726f
 
     //获取图片验证码
     public static final String IMGCODE = "http://reg.cntv.cn/simple/verificationCode.action";
     //邮箱注册
     public static final String EMAILREGISTER = "https://reg.cntv.cn/api/register.action";
-<<<<<<< HEAD
 
     //熊猫文化
     public static final String PANDACULTURE = BASEURL + "xmwh/index.json";
@@ -102,7 +92,6 @@ public class Urls {
     //    原创新闻
     public static String YUANCHUANG = "http://api.cntv.cn/video/videolistById?vsid=VSET100219009515&n=7&serviceId=panda&o=desc&of=time&p=1";
 
-=======
     //滚滚视频
     public static final String GUNGUNVIDEO = "http://www.ipanda.com/kehuduan/video/index.json";
     //熊猫播报
@@ -116,5 +105,5 @@ public class Urls {
     //播报跳转
     public static final String BOBAOXIANGQING="http://api.cntv.cn/article/contentinfo";
     public static final String CHINADIMING = BASEURL+"PAGE14501775094142282/index.json";
->>>>>>> 877f4f683c6590ac372351468317b5a7776d726f
+
 }

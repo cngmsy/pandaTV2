@@ -4,19 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.jiyun.qcloud.dashixummoban.R;
+import com.jiyun.qcloud.dashixummoban.activity.jctv.JCVideoActivity;
 import com.jiyun.qcloud.dashixummoban.adapter.JingCaiAdapter;
 import com.jiyun.qcloud.dashixummoban.base.BaseFragment;
 import com.jiyun.qcloud.dashixummoban.entity.PandaJingcai;
 import com.jiyun.qcloud.dashixummoban.entity.Pandalivedetails;
 import com.jiyun.qcloud.dashixummoban.entity.PandanShiJiao;
-import com.jiyun.qcloud.dashixummoban.pandaliveactivity.PandaLiveActivity;
 import com.jiyun.qcloud.dashixummoban.ui.live.jingcaifragment.JingCaiContract;
 import com.jiyun.qcloud.dashixummoban.ui.live.jingcaifragment.JingCaiPresenter;
 
@@ -26,7 +24,6 @@ import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
@@ -43,10 +40,11 @@ public class JingCaiFragment extends BaseFragment implements JingCaiContract.Vie
     private List<Pandalivedetails.VideoBean.ChaptersBean> lists = new ArrayList<>();
     private List<String> listvid = new ArrayList<>();
     private JingCaiAdapter jingCaiAdapter;
-    private Map<String,String> map= new HashMap<>();
+    private Map<String, String> map = new HashMap<>();
     int i = 1;
     int x = 1;
     int y = 1;
+
 
     @Override
     protected int getLayoutRes() {
@@ -55,12 +53,12 @@ public class JingCaiFragment extends BaseFragment implements JingCaiContract.Vie
 
     @Override
     protected void initData() {
-        map.put("vsid","VSET100167216881");
-        map.put("n","7");
-        map.put("serviceId","panda");
-        map.put("o","desc");
-        map.put("of","time");
-        map.put("p","1");
+        map.put("vsid", "VSET100167216881");
+        map.put("n", "7");
+        map.put("serviceId", "panda");
+        map.put("o", "desc");
+        map.put("of", "time");
+        map.put("p", "1");
 
         presenter = new JingCaiPresenter(this);
         presenter.startmap1(map);
@@ -72,8 +70,9 @@ public class JingCaiFragment extends BaseFragment implements JingCaiContract.Vie
         jingCaiAdapter.setOnButtonClickListener(new JingCaiAdapter.ButtonClick() {
             @Override
             public void buttonclick(int position, View view) {
-                Intent intent = new Intent(getActivity(), PandaLiveActivity.class);
-                intent.putExtra("url",listvid.get(position));
+                Intent intent = new Intent(getActivity(), JCVideoActivity.class);
+                intent.putExtra("url", listvid.get(position));
+                intent.putExtra("titles", list.get(position).getT());
                 startActivity(intent);
             }
         });
@@ -88,6 +87,7 @@ public class JingCaiFragment extends BaseFragment implements JingCaiContract.Vie
                 presenter.startmap1(map);
                 jingcaiRecycle.refreshComplete();
             }
+
             @Override
             public void onLoadMore() {
 
@@ -96,10 +96,10 @@ public class JingCaiFragment extends BaseFragment implements JingCaiContract.Vie
 
                 i++;
                 Toast.makeText(getActivity(), "加载更多。。。。。", Toast.LENGTH_SHORT).show();
-                map.put("p",i+"");
+                map.put("p", i + "");
                 presenter.startmap1(map);
-                Log.e("i:",i+"");
-                Log.e("list.size:",list.size()+"");
+                Log.e("i:", i + "");
+                Log.e("list.size:", list.size() + "");
                 jingcaiRecycle.loadMoreComplete();
             }
         });
@@ -108,10 +108,11 @@ public class JingCaiFragment extends BaseFragment implements JingCaiContract.Vie
     @Override
     protected void initView(View view) {
 
+
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         jingcaiRecycle.setLayoutManager(manager);
 
-        jingCaiAdapter = new JingCaiAdapter(getActivity(),list,lists);
+        jingCaiAdapter = new JingCaiAdapter(getActivity(), list, lists);
         jingcaiRecycle.setAdapter(jingCaiAdapter);
     }
 
@@ -121,24 +122,11 @@ public class JingCaiFragment extends BaseFragment implements JingCaiContract.Vie
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
-
-    @Override
     public void showJingCaiListData(PandaJingcai pandaJingcai) {
 
-        if(x==y){
-            List<PandaJingcai.VideoBean> video =  pandaJingcai.getVideo();
+        if (x == y) {
+            List<PandaJingcai.VideoBean> video = pandaJingcai.getVideo();
+            Log.e("为什么没有数据---", video.get(0).getImg());
             list.addAll(video);
             for (int i = 0; i < video.size(); i++) {
                 String vid = video.get(i).getVid();
@@ -146,8 +134,8 @@ public class JingCaiFragment extends BaseFragment implements JingCaiContract.Vie
             }
             jingCaiAdapter.notifyDataSetChanged();
         }
-        Log.e("i:",i+"");
-        Log.e("list.size:",list.size()+"");
+        Log.e("i:", i + "");
+        Log.e("list.size:", list.size() + "");
     }
 
     @Override
@@ -189,8 +177,9 @@ public class JingCaiFragment extends BaseFragment implements JingCaiContract.Vie
 
     @Override
     public void setPresenter(JingCaiContract.Presenter presenter) {
-
+        this.presenter = presenter;
     }
+
     @Override
     public void onPause() {
         super.onPause();

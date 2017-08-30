@@ -1,7 +1,6 @@
 package com.jiyun.qcloud.dashixummoban.activity.jctv;
 
-import com.jiyun.qcloud.dashixummoban.entity.ShoyeHudongBean;
-import com.jiyun.qcloud.dashixummoban.entity.shoye.GunGunBean;
+import com.jiyun.qcloud.dashixummoban.entity.Pandalivedetails;
 import com.jiyun.qcloud.dashixummoban.entity.shoye.HomeJCBean;
 import com.jiyun.qcloud.dashixummoban.modle.dataModel.IPandaHomeModel;
 import com.jiyun.qcloud.dashixummoban.modle.dataModel.PandaHomeModelImpl;
@@ -24,6 +23,45 @@ public class JCVideoPresenter implements JCVideo.Presenter {
         this.view = view;
         view.setPresenter(this);
         this.model=new PandaHomeModelImpl();
+    }
+
+    @Override
+    public void startmap1(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap2(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap3(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap4(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap5(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap6(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap7(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap8(Map<String, String> map) {
 
     }
 
@@ -46,12 +84,31 @@ public class JCVideoPresenter implements JCVideo.Presenter {
             }
         });
 
+    }
+
+    @Override
+    public void startshijiao() {
 
     }
 
     @Override
     public void second(String url) {
+        model.videodetails(url, new NetWorkCallBack<Pandalivedetails>() {
+            @Override
+            public void onSuccess(Pandalivedetails pandalivedetails) {
+                view.videodetails(pandalivedetails);
+            }
 
+            @Override
+            public void onError(int errorCode, String errorMsg) {
+
+            }
+
+            @Override
+            public void onFail(String netOff) {
+
+            }
+        });
     }
 
     @Override

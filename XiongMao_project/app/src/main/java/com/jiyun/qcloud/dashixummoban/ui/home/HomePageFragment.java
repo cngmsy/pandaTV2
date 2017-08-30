@@ -8,11 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.jiyun.qcloud.dashixummoban.R;
-import com.jiyun.qcloud.dashixummoban.activity.hudong.HuDongPresenter;
 import com.jiyun.qcloud.dashixummoban.adapter.shoye.ShoyeXRecyclerAdapter;
 import com.jiyun.qcloud.dashixummoban.base.BaseFragment;
 import com.jiyun.qcloud.dashixummoban.entity.PandaHome;
@@ -26,11 +24,6 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-
-import static android.R.attr.data;
-import static android.R.id.list;
-import static java.util.Collections.addAll;
 
 /**
  * Created by chj on 2017/8/20.
@@ -110,7 +103,52 @@ public class HomePageFragment extends BaseFragment implements HomeContract.Prese
     }
 
     @Override
+    public void startmap1(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap2(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap3(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap4(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap5(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap6(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap7(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap8(Map<String, String> map) {
+
+    }
+
+    @Override
     public void start() {
+
+    }
+
+    @Override
+    public void startshijiao() {
 
     }
 
@@ -132,6 +170,7 @@ public class HomePageFragment extends BaseFragment implements HomeContract.Prese
     @Override
     public void showHomeListData(PandaHome pandaHome, JingCaiYiKe jingCaiYiKe, GunGunBean gunGunBean) {
         PandaHome.DataBean data = pandaHome.getData();
+        Log.e("data:",data.toString());
         //轮播图
             listdata.add(data.getBigImg());
         //播报
@@ -156,10 +195,6 @@ public class HomePageFragment extends BaseFragment implements HomeContract.Prese
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         shouyeXrecycler.setLayoutManager(linearLayoutManager);
         shouyeXrecycler.setAdapter(shoyeXRecyclerAdapter);
-
-
-
-
         shoyeXRecyclerAdapter.notifyDataSetChanged();
     }
 

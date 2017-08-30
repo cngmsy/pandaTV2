@@ -56,6 +56,5 @@ public class IndexViewPager extends ViewPager {
         } else {
             return false;
         }
-
     }
 }

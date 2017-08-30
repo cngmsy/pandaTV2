@@ -23,6 +23,46 @@ public class BoBAoPresenter implements BoBaoContract.presenter {
     }
 
     @Override
+    public void startmap1(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap2(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap3(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap4(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap5(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap6(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap7(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void startmap8(Map<String, String> map) {
+
+    }
+
+    @Override
     public void start() {
         model.loadBoBaolist(new NetWorkCallBack<BoBaoEntity1>() {
             @Override
@@ -40,6 +80,11 @@ public class BoBAoPresenter implements BoBaoContract.presenter {
 
             }
         });
+    }
+
+    @Override
+    public void startshijiao() {
+
     }
 
     @Override

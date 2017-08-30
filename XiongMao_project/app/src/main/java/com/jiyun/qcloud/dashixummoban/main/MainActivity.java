@@ -24,8 +24,8 @@ import com.jiyun.qcloud.dashixummoban.ui.bobao.BobaoFragment;
 import com.jiyun.qcloud.dashixummoban.ui.china.ChinaFragment;
 import com.jiyun.qcloud.dashixummoban.ui.china.ChinaPresenter;
 import com.jiyun.qcloud.dashixummoban.ui.home.HomePageFragment;
+import com.jiyun.qcloud.dashixummoban.ui.home.HomePresenter;
 import com.jiyun.qcloud.dashixummoban.ui.live.LivePageFragment;
-import com.jiyun.qcloud.dashixummoban.ui.live.livepagerfragment.LivepagerPresenter;
 import com.jiyun.qcloud.dashixummoban.ui.video.VideoFragment;
 import com.orhanobut.logger.Logger;
 
@@ -92,7 +92,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
-
     }
 
     @OnClick({R.id.homePage, R.id.homePandaLive, R.id.homeRollVideo, R.id.homePandaBroadcast, R.id.homeLiveChina, R.id.homeBottomGroup,R.id.personImg,R.id.hudongImg})
@@ -110,16 +109,14 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.homePandaLive:
                 //熊猫直播
-<<<<<<< HEAD
-                LivePageFragment build = (LivePageFragment) FragmentMager.getInstance().start(R.id.container, LivePageFragment.class, false).build();
-                new LivepagerPresenter(build);
-=======
+
                 iconImg.setVisibility(View.INVISIBLE);
                 textView2.setVisibility(View.VISIBLE);
                 hudongImg.setVisibility(View.INVISIBLE);
                 textView2.setText("熊猫直播");
                 FragmentMager.getInstance().start(R.id.container, LivePageFragment.class, false).build();
->>>>>>> 877f4f683c6590ac372351468317b5a7776d726f
+
+
                 break;
             case R.id.homeRollVideo:
                 //滚滚视频
@@ -143,8 +140,8 @@ public class MainActivity extends BaseActivity {
                 textView2.setVisibility(View.VISIBLE);
                 hudongImg.setVisibility(View.INVISIBLE);
                 textView2.setText("直播中国");
-                ChinaFragment build = (ChinaFragment) FragmentMager.getInstance().start(R.id.container, ChinaFragment.class, false).build();
-                new ChinaPresenter(build);
+                ChinaFragment builds = (ChinaFragment) FragmentMager.getInstance().start(R.id.container, ChinaFragment.class, false).build();
+                new ChinaPresenter(builds);
                 break;
             case R.id.homeBottomGroup:
                 break;

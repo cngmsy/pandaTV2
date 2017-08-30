@@ -3,12 +3,12 @@ package com.jiyun.qcloud.dashixummoban.modle.dataModel;
 
 import com.jiyun.qcloud.dashixummoban.config.Urls;
 import com.jiyun.qcloud.dashixummoban.entity.PandaHome;
+import com.jiyun.qcloud.dashixummoban.entity.Pandalivedetails;
 import com.jiyun.qcloud.dashixummoban.entity.ShoyeHudongBean;
 import com.jiyun.qcloud.dashixummoban.entity.shoye.GunGunBean;
 import com.jiyun.qcloud.dashixummoban.entity.shoye.HomeJCBean;
 import com.jiyun.qcloud.dashixummoban.entity.shoye.JingCaiYiKe;
 import com.jiyun.qcloud.dashixummoban.modle.net.callback.NetWorkCallBack;
-import com.orhanobut.logger.Logger;
 
 import static com.jiyun.qcloud.dashixummoban.config.Urls.PANDAHOME_GUNGUNSHIPING;
 import static com.jiyun.qcloud.dashixummoban.config.Urls.PANDAHOME_JINGCAI;
@@ -19,11 +19,7 @@ import static com.jiyun.qcloud.dashixummoban.config.Urls.PANDAHOME_JINGCAI;
 
 public class PandaHomeModelImpl implements IPandaHomeModel {
 
-<<<<<<< HEAD
-=======
-
 //首页的数据
->>>>>>> 877f4f683c6590ac372351468317b5a7776d726f
     @Override
     public void loadHomeList(NetWorkCallBack<PandaHome> callback) {
         iHttp.get(Urls.PANDAHOME,null,callback);
@@ -51,4 +47,8 @@ public class PandaHomeModelImpl implements IPandaHomeModel {
         iHttp.get(url ,null,callback);
     }
 
+    @Override
+    public void videodetails(String url, NetWorkCallBack<Pandalivedetails> callBack) {
+        iHttp.get(Urls.VIDEOPLAY+url,null,callBack);
+    }
 }

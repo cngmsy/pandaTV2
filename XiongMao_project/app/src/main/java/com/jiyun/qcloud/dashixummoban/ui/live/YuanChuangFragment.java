@@ -4,19 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.jiyun.qcloud.dashixummoban.R;
+import com.jiyun.qcloud.dashixummoban.activity.jctv.JCVideoActivity;
 import com.jiyun.qcloud.dashixummoban.adapter.JingCaiAdapter;
 import com.jiyun.qcloud.dashixummoban.base.BaseFragment;
 import com.jiyun.qcloud.dashixummoban.entity.PandaJingcai;
 import com.jiyun.qcloud.dashixummoban.entity.Pandalivedetails;
 import com.jiyun.qcloud.dashixummoban.entity.PandanShiJiao;
-import com.jiyun.qcloud.dashixummoban.pandaliveactivity.PandaLiveActivity;
 import com.jiyun.qcloud.dashixummoban.ui.live.jingcaifragment.JingCaiContract;
 import com.jiyun.qcloud.dashixummoban.ui.live.jingcaifragment.JingCaiPresenter;
 
@@ -26,7 +24,6 @@ import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
@@ -72,8 +69,9 @@ public class YuanChuangFragment extends BaseFragment implements JingCaiContract.
         jingCaiAdapter.setOnButtonClickListener(new JingCaiAdapter.ButtonClick() {
             @Override
             public void buttonclick(int position, View view) {
-                Intent intent = new Intent(getActivity(), PandaLiveActivity.class);
+                Intent intent = new Intent(getActivity(), JCVideoActivity.class);
                 intent.putExtra("url",listvid.get(position));
+                intent.putExtra("titles", list.get(position).getT());
                 startActivity(intent);
             }
         });
@@ -117,20 +115,6 @@ public class YuanChuangFragment extends BaseFragment implements JingCaiContract.
     @Override
     public void setBundle(Bundle bundle) {
 
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
     }
 
     @Override
@@ -186,7 +170,7 @@ public class YuanChuangFragment extends BaseFragment implements JingCaiContract.
 
     @Override
     public void setPresenter(JingCaiContract.Presenter presenter) {
-
+        this.presenter = presenter;
     }
     @Override
     public void onPause() {

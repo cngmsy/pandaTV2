@@ -18,14 +18,12 @@ public interface IBasePresenter {
     void startmap8(Map<String,String> map);
 
     void start();
-<<<<<<< HEAD
+
     void startshijiao();
-=======
 
     void second(String url);
 
     void threed(Map<String, String> map);
 
     void four(Map<String, String> map);
->>>>>>> 877f4f683c6590ac372351468317b5a7776d726f
 }

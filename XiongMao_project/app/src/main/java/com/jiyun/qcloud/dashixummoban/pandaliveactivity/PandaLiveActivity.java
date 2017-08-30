@@ -28,7 +28,6 @@ public class PandaLiveActivity extends BaseActivity implements JingCaiContract.V
     protected void initData() {
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
-
         presenter = new JingCaiPresenter(this);
         presenter.second(url);
     }
@@ -62,7 +61,6 @@ public class PandaLiveActivity extends BaseActivity implements JingCaiContract.V
 
     @Override
     public void showJingCaiListDataSecond(Pandalivedetails pandalivedetails) {
-
         List<Pandalivedetails.VideoBean.ChaptersBean> chapters = pandalivedetails.getVideo().getChapters();
         for (int i = 0; i < chapters.size(); i++) {
             String url = chapters.get(i).getUrl();

@@ -55,13 +55,13 @@
                     android:id="@+id/videoView_length"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="2" />
 
                 <TextView
                     android:id="@+id/alltime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20px"
+                    android:layout_marginLeft="15px"
                     android:text="00:00:00"
                     android:textColor="#919191" />
 
@@ -72,17 +72,20 @@
                     android:padding="10px"
                     android:gravity="center"
                     android:layout_margin="15px"
+                    android:layout_marginLeft="10px"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <ImageView
+                    android:layout_marginLeft="10px"
                     android:layout_width="80px"
                     android:layout_height="80px"
                     android:src="@drawable/volume_continue" />
 
                 <SeekBar
-                    android:layout_width="250px"
-                    android:layout_height="wrap_content" />
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -96,7 +99,11 @@
 
 
             <TextView
-                android:textSize="20sp"
+                android:layout_marginLeft="200px"
+                android:layout_marginRight="200px"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textSize="55px"
                 android:textColor="#fff"
                 android:id="@+id/jc_title"
                 android:layout_width="wrap_content"
@@ -107,8 +114,8 @@
 
             <ImageView
                 android:id="@+id/jc_fengxiang"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="80px"
+                android:layout_height="80px"
                 android:layout_marginRight="10px"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
@@ -127,8 +134,8 @@
 
             <ImageView
                 android:id="@+id/jv_return"
-                android:layout_width="60px"
-                android:layout_height="60px"
+                android:layout_width="70px"
+                android:layout_height="70px"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"

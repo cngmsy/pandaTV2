@@ -8,9 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,7 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import de.greenrobot.event.EventBus;
 import de.greenrobot.event.Subscribe;
@@ -40,7 +37,6 @@ import io.vov.vitamio.widget.MediaController;
  */
 
 public class LiveFragment extends BaseFragment implements LiveContract.View {
-
 
     @BindView(R.id.tv_live_title)
     TextView tvLiveTitle;
@@ -70,15 +66,11 @@ public class LiveFragment extends BaseFragment implements LiveContract.View {
     protected void initData() {
         presenter = new LivePresenter(this);
         presenter.start();
+
+        listener();
     }
 
-    @Override
-    protected void initView(View view) {
-
-        EventBus.getDefault().register(this);
-
-        liveTablayout.setSelectedTabIndicatorColor(Color.BLUE);
-
+    private void listener() {
         imageLiveSanjiaoUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,6 +91,15 @@ public class LiveFragment extends BaseFragment implements LiveContract.View {
                 }
             }
         });
+    }
+
+    @Override
+    protected void initView(View view) {
+
+        EventBus.getDefault().register(this);
+
+        liveTablayout.setSelectedTabIndicatorColor(Color.BLUE);
+
     }
 
     @Override
@@ -182,19 +183,19 @@ public class LiveFragment extends BaseFragment implements LiveContract.View {
 
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
-        return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
-    }
+//   @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        // TODO: inflate a fragment view
+//        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+//        unbinder = ButterKnife.bind(this, rootView);
+//        return rootView;
+//    }
+//
+//    @Override
+//    public void onDestroyView() {
+//        super.onDestroyView();
+//        unbinder.unbind();
+//    }
 
     @Subscribe(threadMode = ThreadMode.MainThread)
     public void onEventMessage(PandanShiJiao.ListBean listBean){

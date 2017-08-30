@@ -14,6 +14,7 @@ import com.jiyun.qcloud.dashixummoban.entity.Web2Entity3;
  */
 
 public class Web2Fragment2 extends BaseFragment implements Web2Contract.view {
+
     @Override
     protected int getLayoutRes() {
         return R.layout.fragment_video;

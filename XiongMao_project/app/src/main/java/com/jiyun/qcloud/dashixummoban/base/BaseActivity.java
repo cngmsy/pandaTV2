@@ -34,8 +34,6 @@ public abstract class BaseActivity  extends AppCompatActivity{
         // ActivityCollector.getInstance().addActivity(this);
         initView();
         initData();
-
-
     }
 
 

@@ -18,7 +18,6 @@ public class JingCaiPresenter implements JingCaiContract.Presenter{
     private JingCaiContract.View jingcaiView;
     private IJingCaiModel iJingCaiModel;
 
-
     public JingCaiPresenter(JingCaiContract.View jingcaiView) {
         this.jingcaiView = jingcaiView;
         jingcaiView.setPresenter(this);
@@ -71,6 +70,15 @@ public class JingCaiPresenter implements JingCaiContract.Presenter{
         },url);
     }
 
+    @Override
+    public void threed(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void four(Map<String, String> map) {
+
+    }
 
     @Override
     public void start() {
@@ -242,7 +250,7 @@ public class JingCaiPresenter implements JingCaiContract.Presenter{
     @Override
     public void startmap8(Map<String, String> map) {
         jingcaiView.showProgress();
-        iJingCaiModel.loadJingcaipagerList7(new NetWorkCallBack<PandaJingcai>() {
+        iJingCaiModel.loadJingcaipagerList8(new NetWorkCallBack<PandaJingcai>() {
             @Override
             public void onSuccess(PandaJingcai pandaJingcai) {
                 jingcaiView.showJingCaiListData(pandaJingcai);

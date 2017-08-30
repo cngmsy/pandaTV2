@@ -90,5 +90,20 @@ public class LivepagerPresenter implements LivepagerContract.Presenter{
 
     }
 
+    @Override
+    public void second(String url) {
+
+    }
+
+    @Override
+    public void threed(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void four(Map<String, String> map) {
+
+    }
+
 
 }

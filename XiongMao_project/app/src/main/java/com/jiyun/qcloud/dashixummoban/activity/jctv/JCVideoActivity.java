@@ -27,8 +27,8 @@ import android.widget.Toast;
 
 import com.jiyun.qcloud.dashixummoban.R;
 import com.jiyun.qcloud.dashixummoban.base.BaseActivity;
+import com.jiyun.qcloud.dashixummoban.entity.Pandalivedetails;
 import com.jiyun.qcloud.dashixummoban.entity.shoye.HomeJCBean;
-import com.jiyun.qcloud.dashixummoban.main.MainActivity;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
@@ -40,7 +40,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static android.os.Build.VERSION_CODES.M;
 import static com.jiyun.qcloud.dashixummoban.R.id.videoView_length;
 
 //自定义的videoview视频播放 杜智宏
@@ -98,10 +97,17 @@ public class JCVideoActivity extends BaseActivity implements JCVideo.View {
         Intent intent = getIntent();
         String mp4 = intent.getStringExtra("mp4");
         String title = intent.getStringExtra("title");
-        jcTitle.setText(title);
-        Log.e("mp4mp4mp4", mp4);
+        String url = intent.getStringExtra("url");
+        String titles = intent.getStringExtra("titles");
         new JCVideoPresenter(mp4, this);
-        presenter.start();
+
+        if(url==null){
+            jcTitle.setText(title);
+            presenter.start();
+        }else {
+            jcTitle.setText(titles);
+            presenter.second(url);
+        }
     }
 
     @Override
@@ -162,8 +168,18 @@ public class JCVideoActivity extends BaseActivity implements JCVideo.View {
         HomeJCBean.VideoBean video = homeJCBean.getVideo();
         List<HomeJCBean.VideoBean.ChaptersBean> chapters = video.getChapters();
         HomeJCBean.VideoBean.ChaptersBean chaptersBean = chapters.get(0);
-         url = chaptersBean.getUrl();
+        url = chaptersBean.getUrl();
         videoView.setVideoURI(Uri.parse(url));
+
+    }
+
+    @Override
+    public void videodetails(Pandalivedetails pandalivedetails) {
+        List<Pandalivedetails.VideoBean.ChaptersBean> chapters = pandalivedetails.getVideo().getChapters();
+        for (int i = 0; i < chapters.size(); i++) {
+            String url = chapters.get(i).getUrl();
+            videoView.setVideoURI(Uri.parse(url));
+        }
     }
 
     @Override
@@ -300,8 +316,6 @@ public class JCVideoActivity extends BaseActivity implements JCVideo.View {
 
                 videoViewLength.setMax(duration);
                 videoViewLength.setProgress(currentPosition);
-
-
             }
             UIhandler.sendEmptyMessageDelayed(UPDATAUI, 100);
         }
@@ -324,7 +338,7 @@ public class JCVideoActivity extends BaseActivity implements JCVideo.View {
     private void setListener() {
         //视频块进
         videoViewLength.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
+            
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 //当视频播放完毕之后显示重播按钮
@@ -332,8 +346,10 @@ public class JCVideoActivity extends BaseActivity implements JCVideo.View {
                 if (i > 0 && i == seekBar.getMax()) {
                     chongbo.setVisibility(View.VISIBLE);
                     zi.setVisibility(View.VISIBLE);
+                }else {
+                    chongbo.setVisibility(View.GONE);
+                    zi.setVisibility(View.GONE);
                 }
-
             }
 
             @Override
@@ -348,7 +364,6 @@ public class JCVideoActivity extends BaseActivity implements JCVideo.View {
                 if (!videoView.isPlaying()) {
                     videoView.start();
                 }
-
             }
         });
 

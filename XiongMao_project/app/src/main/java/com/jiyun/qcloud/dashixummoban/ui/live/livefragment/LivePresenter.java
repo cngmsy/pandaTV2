@@ -114,4 +114,14 @@ public class LivePresenter implements LiveContract.Presenter {
             }
         },url);
     }
+
+    @Override
+    public void threed(Map<String, String> map) {
+
+    }
+
+    @Override
+    public void four(Map<String, String> map) {
+
+    }
 }

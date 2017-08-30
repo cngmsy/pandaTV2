@@ -15,8 +15,7 @@
     <com.jiyun.qcloud.dashixummoban.customview.IndexViewPager
         android:id="@+id/livepager_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_height="match_parent">
     </com.jiyun.qcloud.dashixummoban.customview.IndexViewPager>
-    
+
 </LinearLayout>

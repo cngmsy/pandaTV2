@@ -21,8 +21,7 @@ import butterknife.OnClick;
 //webView的页面 如果要使用直接Intent传来一个名字为url的地址就可以
 public class WebViewActivity extends BaseActivity {
 
-
-      @BindView(R.id.web_return)
+    @BindView(R.id.web_return)
     ImageView webReturn;
     @BindView(R.id.web_title)
     TextView webTitle;
