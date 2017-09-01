@@ -28,29 +28,21 @@ public abstract class BaseFragment extends Fragment {
            // view = getCreateView(inflater, container);
             view=View.inflate(App.mBaseActivity,getLayoutRes(),null);
         }
+//        else{
+//            view=View.inflate(App.mBaseActivity,getLayoutRes(),null);
+//        }
         // 缓存的rootView需要判断是否已经被加过parent，如果有parent需要从parent删除，要不然会发生这个rootview已经有parent的错误。
         ViewGroup parent = (ViewGroup) view.getParent();
         if (parent != null) {
             parent.removeView(view);
         }
 
-
         unbinder =ButterKnife.bind(this,view);
         initView(view);
 
         return view;
     }
-    /**
-     * 获取Fragment布局文件的View
-     *
-     * @param inflater
-     * @param container
-     * @return
-     */
-    private View getCreateView(LayoutInflater inflater, ViewGroup container) {
 
-        return inflater.inflate(getLayoutRes(), container, false);
-    }
 
     protected abstract int getLayoutRes();
 
@@ -71,6 +63,13 @@ public abstract class BaseFragment extends Fragment {
      * @param bundle
      */
     public abstract void setBundle(Bundle bundle);
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
 
 
 

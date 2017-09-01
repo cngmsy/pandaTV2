@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/toutoutou"
-    android:alpha="0.95"
-    >
+    android:alpha="0.95">
     <View
         android:background="#72a3de"
         android:layout_width="match_parent"

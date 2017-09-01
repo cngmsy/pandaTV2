@@ -1,5 +1,6 @@
 package com.jiyun.qcloud.dashixummoban.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jiyun.qcloud.dashixummoban.R;
+import com.jiyun.qcloud.dashixummoban.activity.denglu.LoginActivity;
+import com.jiyun.qcloud.dashixummoban.activity.hudong.HuDongActivity;
 import com.jiyun.qcloud.dashixummoban.app.App;
 import com.jiyun.qcloud.dashixummoban.base.BaseActivity;
 import com.jiyun.qcloud.dashixummoban.base.BaseFragment;
@@ -21,6 +24,7 @@ import com.jiyun.qcloud.dashixummoban.ui.bobao.BobaoFragment;
 import com.jiyun.qcloud.dashixummoban.ui.china.ChinaFragment;
 import com.jiyun.qcloud.dashixummoban.ui.china.ChinaPresenter;
 import com.jiyun.qcloud.dashixummoban.ui.home.HomePageFragment;
+import com.jiyun.qcloud.dashixummoban.ui.home.HomePresenter;
 import com.jiyun.qcloud.dashixummoban.ui.live.LivePageFragment;
 import com.jiyun.qcloud.dashixummoban.ui.video.VideoFragment;
 import com.orhanobut.logger.Logger;
@@ -28,6 +32,8 @@ import com.orhanobut.logger.Logger;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import util.UpdateAppUtils;
+
 
 /**
  * Created by chj on 2017/8/20.
@@ -69,22 +75,27 @@ public class MainActivity extends BaseActivity {
         fragmentManager = App.mBaseActivity.getSupportFragmentManager();
         HomePageFragment homeFragment = (HomePageFragment) FragmentMager.getInstance().start(R.id.container, HomePageFragment.class, false).build();
         //presenter在这里初始化
-//        new HomePresenter(homeFragment);
+        new HomePresenter(homeFragment);
     }
 
     @Override
     protected void initView() {
         textView2.setVisibility(View.INVISIBLE);
+
+        UpdateAppUtils.from(this)
+                .serverVersionCode(2)  //服务器versionCode
+                .serverVersionName("2.0") //服务器versionName
+                .apkPath("http://123.206.14.104:8080/FileUploadDemo/files/wxl.apk") //最新apk下载地址
+                .update();
     }
 
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
-
     }
 
+    @OnClick({R.id.homePage, R.id.homePandaLive, R.id.homeRollVideo, R.id.homePandaBroadcast, R.id.homeLiveChina, R.id.homeBottomGroup,R.id.personImg,R.id.hudongImg})
 
-    @OnClick({R.id.homePage, R.id.homePandaLive, R.id.homeRollVideo, R.id.homePandaBroadcast, R.id.homeLiveChina, R.id.homeBottomGroup})
     public void onClicks(View view) {
         switch (view.getId()) {
             case R.id.homePage:
@@ -92,16 +103,20 @@ public class MainActivity extends BaseActivity {
                 iconImg.setVisibility(View.VISIBLE);
                 textView2.setVisibility(View.INVISIBLE);
                 hudongImg.setVisibility(View.VISIBLE);
+
                 FragmentMager.getInstance().start(R.id.container, HomePageFragment.class, false).build();
                 Logger.d("22222");
                 break;
             case R.id.homePandaLive:
                 //熊猫直播
+
                 iconImg.setVisibility(View.INVISIBLE);
                 textView2.setVisibility(View.VISIBLE);
                 hudongImg.setVisibility(View.INVISIBLE);
                 textView2.setText("熊猫直播");
                 FragmentMager.getInstance().start(R.id.container, LivePageFragment.class, false).build();
+
+
                 break;
             case R.id.homeRollVideo:
                 //滚滚视频
@@ -125,10 +140,20 @@ public class MainActivity extends BaseActivity {
                 textView2.setVisibility(View.VISIBLE);
                 hudongImg.setVisibility(View.INVISIBLE);
                 textView2.setText("直播中国");
-                ChinaFragment build = (ChinaFragment) FragmentMager.getInstance().start(R.id.container, ChinaFragment.class, false).build();
-                new ChinaPresenter(build);
+                ChinaFragment builds = (ChinaFragment) FragmentMager.getInstance().start(R.id.container, ChinaFragment.class, false).build();
+                new ChinaPresenter(builds);
                 break;
             case R.id.homeBottomGroup:
+                break;
+            //点击登录
+            case R.id.personImg:
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                break;
+            //点击跳到互动页面
+            case R.id.hudongImg:
+                Intent intent1 = new Intent(MainActivity.this, HuDongActivity.class);
+                startActivity(intent1);
                 break;
         }
     }
@@ -194,6 +219,7 @@ public class MainActivity extends BaseActivity {
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
     }
+
 }
 
 

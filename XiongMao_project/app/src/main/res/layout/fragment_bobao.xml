@@ -5,9 +5,9 @@
     tools:context="com.jiyun.qcloud.dashixummoban.ui.bobao.BobaoFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/bobao_xrecycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="熊猫播报" />
+        android:layout_height="match_parent" />
 
 </FrameLayout>

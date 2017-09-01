@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#cecccc">
+
+<com.zhy.autolayout.AutoRelativeLayout
+    android:layout_marginLeft="10px"
+    android:layout_marginRight="10px"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.jiyun.qcloud.dashixummoban.customview.MyGridView
+        android:background="#fff"
+        android:paddingLeft="10px"
+        android:paddingRight="10px"
+        android:id="@+id/shijiao_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="3">
+    </com.jiyun.qcloud.dashixummoban.customview.MyGridView>
+</com.zhy.autolayout.AutoRelativeLayout>
+
+
+</com.zhy.autolayout.AutoLinearLayout>

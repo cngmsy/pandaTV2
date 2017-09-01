@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#fff"
+    android:padding="20px"
+    android:layout_margin="5px"
+    android:layout_height="wrap_content">
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60px">
+        <TextView
+            android:id="@+id/shoye_item3_title"
+            android:textColor="#007bb6"
+            android:gravity="center"
+            android:text="直播秀场"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <com.jiyun.qcloud.dashixummoban.view.MyGridView
+        android:id="@+id/shoye_item3_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="3"></com.jiyun.qcloud.dashixummoban.view.MyGridView>
+
+    <TextView
+        android:background="#e9e9e9"
+        android:layout_width="match_parent"
+        android:layout_height="2px" />
+
+</com.zhy.autolayout.AutoLinearLayout>
