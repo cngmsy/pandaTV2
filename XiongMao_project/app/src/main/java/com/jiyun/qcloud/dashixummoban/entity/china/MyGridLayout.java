@@ -75,7 +75,6 @@ public class MyGridLayout extends GridLayout implements OnLongClickListener,
 	public void setGridLayoutItemDrageAble(boolean isDrageAble) {
 		this.mIsDragedAble = isDrageAble;
 	}
-
 	private int mIndex;
 
 	public void addTvItem(final String strTv) {
@@ -84,6 +83,7 @@ public class MyGridLayout extends GridLayout implements OnLongClickListener,
 
 
 		LayoutParams params = new LayoutParams();
+
 		params.width = getResources().getDisplayMetrics().widthPixels / 4
 				- mMargin * 2;
 		params.height = LayoutParams.WRAP_CONTENT;
@@ -105,7 +105,6 @@ public class MyGridLayout extends GridLayout implements OnLongClickListener,
 			}
 		});
 		if (mIsDragedAble) {
-
 			tv.setOnLongClickListener(this);
 		} else
 			tv.setOnLongClickListener(null);
